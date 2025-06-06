@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+      font-family: 'Press Start 2P', 'Microsoft YaHei', 'PingFang SC', sans-serif;
       background-color: #121212;
       overflow: hidden;
       position: relative;
@@ -17,15 +17,17 @@
     .floating-text {
       position: absolute;
       color: rgba(255, 255, 255, 0.9);
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(52, 152, 219, 0.9), 0 0 20px rgba(46, 204, 113, 0.7);
-      animation: float 15s linear infinite;
+      font-size: 1.2rem;
+      font-weight: normal;
+      font-family: 'Press Start 2P', monospace;
+      text-shadow: 2px 2px 0 rgba(52, 152, 219, 0.9);
+      animation: float 15s steps(30) infinite;
       white-space: nowrap;
       opacity: 0;
       z-index: 10;
       letter-spacing: 1px;
-      top: 5%; /* 让文字靠上显示 */
+      top: 5%;
+      image-rendering: pixelated;
     }
     
     @keyframes float {
@@ -36,7 +38,7 @@
       5% {
         opacity: 1;
       }
-      25% { /* 保持显示3秒左右 */
+      25% {
         opacity: 1;
       }
       30% {
@@ -57,56 +59,89 @@
       position: relative;
       z-index: 5;
       overflow: hidden;
-      border-radius: 20px;
-      animation: container-float 6s ease-in-out infinite;
+      border-radius: 0;
       display: flex;
       flex-direction: column;
     }
     
-    @keyframes container-float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    
     .app-header {
       text-align: center;
-      padding: 15px 0;  /* 减小头部padding */
-      color: white;
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(52, 152, 219, 0.9), 0 0 20px rgba(46, 204, 113, 0.7);
-      background: rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+      padding: 15px 0;
+      margin-bottom: 10px;
     }
     
-    .phone-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .app-title {
+      background-color: #2196F3;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: normal;
+      padding: 8px 25px;
+      border-radius: 0;
+      display: inline-block;
+      box-shadow: 4px 4px 0 rgba(33, 150, 243, 0.5);
+      margin-bottom: 10px;
+      font-family: 'Press Start 2P', monospace;
+      text-transform: uppercase;
+      image-rendering: pixelated;
+    }
+    
+    .app-subtitle {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    .subtitle-pill {
+      background-color: #2196F3;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: normal;
+      padding: 5px 15px;
+      border-radius: 0;
+      margin: 0 5px;
+      box-shadow: 2px 2px 0 rgba(33, 150, 243, 0.4);
+      font-family: 'Press Start 2P', monospace;
+      image-rendering: pixelated;
+    }
+    
+    .cocktail-image {
+      width: 156px;
+      height: 195px;
+      margin: 20px auto;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFFFF"><path d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"/></svg>');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      image-rendering: pixelated;
+    }
+    
+    .cocktail-glass {
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.1) 100%);
-      z-index: 30;
-      border-radius: 20px;
-      box-shadow: inset 0 0 15px rgba(52, 152, 219, 0.3);
+      background: linear-gradient(to bottom, #4CAF50 0%, #FF9800 30%, #F44336 100%);
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"/></svg>');
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5,7L5.5,5H18.5L16.5,7M11,13V19H6V21H18V19H13V13L21,5V3H3V5L11,13Z"/></svg>');
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      image-rendering: pixelated;
     }
     
-    .phone-notch {
+    .lime-slice {
+      width: 39px;
+      height: 39px;
+      background-color: #8BC34A;
+      border-radius: 50%;
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 25px;
-      background-color: #000;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-      z-index: 31;
+      top: 13px;
+      right: 33px;
+      transform: rotate(-20deg);
+      box-shadow: 0 0 5px rgba(139, 195, 74, 0.7);
+      image-rendering: pixelated;
     }
     
     .bubbles {
@@ -123,8 +158,10 @@
       position: absolute;
       bottom: -50px;
       background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: bubble-rise linear infinite;
+      border-radius: 0;
+      animation: bubble-rise steps(20) infinite;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      image-rendering: pixelated;
     }
     
     @keyframes bubble-rise {
@@ -144,64 +181,71 @@
       }
     }
     
-    .input-group {
-      margin: 8px auto;  /* 减小输入框组的外边距 */
+    .input-container {
       width: 85%;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 0;
+      padding: 10px;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+      border: 2px solid #000;
+      image-rendering: pixelated;
     }
     
     textarea {
       width: 100%;
-      height: 65px;  /* 稍微减小文本框高度 */
-      padding: 8px;  /* 减小内边距 */
-      border: 2px solid rgba(52, 152, 219, 0.5);
-      border-radius: 8px;
+      height: 65px;
+      padding: 8px;
+      border: 2px solid #000;
+      border-radius: 0;
       resize: none;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.9);
-      font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+      font-size: 14px;
+      background: transparent;
+      font-family: 'Press Start 2P', monospace;
+      image-rendering: pixelated;
     }
     
     textarea:focus {
       outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
     }
     
     .action-button {
-      background: linear-gradient(45deg, #3498db, #2ecc71);
+      background: #00BFA5;
       color: white;
-      padding: 8px 25px;  /* 减小按钮内边距 */
-      border: none;
-      border-radius: 20px;
+      padding: 12px 30px;
+      border: 2px solid #008975;
+      border-radius: 0;
       cursor: pointer;
       font-size: 16px;
-      font-weight: bold;
-      transition: all 0.3s ease;
+      font-weight: normal;
+      font-family: 'Press Start 2P', monospace;
+      transition: all 0.2s ease;
       display: block;
-      margin: 8px auto;  /* 减小按钮外边距 */
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin: 20px auto;
+      box-shadow: 4px 4px 0 #008975;
+      image-rendering: pixelated;
     }
     
     .action-button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #008975;
     }
     
     .loading {
       display: none;
       text-align: center;
-      margin: 8px 0;  /* 减小加载区域的间距 */
+      margin: 15px 0;
     }
     
     .loading-spinner {
-      width: 35px;
-      height: 35px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top: 3px solid #3498db;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 8px auto;
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #00BFA5;
+      border-radius: 0;
+      animation: spin 1s steps(8) infinite;
+      margin: 10px auto;
+      image-rendering: pixelated;
     }
     
     @keyframes spin {
@@ -211,53 +255,54 @@
     
     .response-content {
       background: rgba(255, 255, 255, 0.9);
-      padding: 8px;  /* 减小内边距 */
-      border-radius: 8px;
-      margin: 8px auto;  /* 减小外边距 */
+      padding: 10px;
+      border-radius: 0;
+      margin: 15px auto;
       width: 85%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+      border: 2px solid #000;
+      image-rendering: pixelated;
     }
     
-    .cocktail-image {
+    .result-cocktail-image {
       width: 100%;
       max-width: 280px;
-      border-radius: 8px;
-      margin: 0 auto 6px;  /* 减小底部间距 */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 0;
+      margin: 0 auto 10px;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+      border: 2px solid #000;
       object-fit: contain;
+      image-rendering: pixelated;
     }
     
     .download-button {
       display: inline-block;
-      padding: 6px 20px;  /* 减小按钮内边距 */
-      background: linear-gradient(45deg, #3498db, #2ecc71);
+      padding: 8px 25px;
+      background: #00BFA5;
       color: #fff;
-      border-radius: 20px;
+      border: 2px solid #008975;
+      border-radius: 0;
       text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      margin-top: 4px;  /* 减小顶部间距 */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      font-size: 14px;
+      font-weight: normal;
+      font-family: 'Press Start 2P', monospace;
+      transition: all 0.2s ease;
+      margin-top: 8px;
+      box-shadow: 4px 4px 0 #008975;
+      font-size: 12px;
+      image-rendering: pixelated;
     }
     
     .download-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 #008975;
     }
     
     @media (max-width: 480px) {
       .mobile-container {
         width: 100%;
-        border-radius: 0;
-        animation: none;
-      }
-      
-      .phone-frame, .phone-notch {
-        display: none;
       }
       
       .floating-text {
@@ -265,45 +310,34 @@
       }
     }
     
-    #coze-container {
+    #main-content {
       width: 100%;
-      position: relative;
-      z-index: 20;
-      padding-top: 0;  /* 移除顶部padding */
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 25vh;  /* 减小顶部边距，从33vh改为25vh */
-    }
-    
-    .subtitle {
-      text-align: center;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1rem;
-      margin: 0 auto;
-      line-height: 1.4;
-      width: 85%;
-      position: absolute;
-      top: 80px;  /* 减小与顶部的距离 */
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .spacer {
-      flex-grow: 1;
-      min-height: 20px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <div class="mobile-container">
-    <div class="phone-notch"></div>
-    <div class="phone-frame"></div>
-    <div class="app-header">AI调酒师</div>
-    <div class="subtitle">你的私人调酒师，只需输入任何一句话，我将为您推荐最合适酒！</div>
+    <div class="app-header">
+      <div class="app-title">AI调酒师</div>
+      <div class="app-subtitle">
+        <div class="subtitle-pill">私人</div>
+        <div class="subtitle-pill">定制</div>
+        <div class="subtitle-pill">鸡尾酒</div>
+        <div class="subtitle-pill">推荐</div>
+      </div>
+    </div>
     
-    <div id="coze-container">
-      <div class="input-group">
+    <div class="cocktail-image">
+      <div class="cocktail-glass"></div>
+      <div class="lime-slice"></div>
+    </div>
+    
+    <div id="main-content">
+      <div class="input-container">
         <textarea id="input" placeholder="告诉我你的心情，或者描述你想要的鸡尾酒..."></textarea>
       </div>
       <button class="action-button" onclick="callCozeAPI()">开始调酒</button>
@@ -424,7 +458,7 @@
       const response = document.getElementById('response');
 
       if (!input) {
-          alert('请告诉我，你想要什么样的鸡尾酒！');
+          alert('请告诉我你想要什么样的鸡尾酒！');
           return;
       }
 
@@ -470,7 +504,7 @@
               // 只展示图片和下载按钮
               document.getElementById('response').innerHTML = `
                   <div class="response-content">
-                      <img src="${imgUrl}" class="cocktail-image" alt="AI 调酒图片">
+                      <img src="${imgUrl}" class="result-cocktail-image" alt="AI 调酒图片">
                       <a href="${imgUrl}" download="专属调酒.png" class="download-button">下载图片</a>
                   </div>
               `;
