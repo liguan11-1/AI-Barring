@@ -139,7 +139,7 @@
         <button onclick="callCozeAPI()">开始调酒</button>
         <div class="loading" id="loading">
             <div class="loading-spinner"></div>
-            <p>正在为您调制完美的鸡尾酒...</p>
+            <p>正在为您调制专属定制噢！...</p>
         </div>
         <div id="response"></div>
     </div>
@@ -162,7 +162,7 @@
                 const response = await fetch('https://api.coze.cn/v1/workflow/run', {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer pat_UsQXqoiWxqLD0E1YrYSVA5ufeehiIkocr0F3o3VZt9KgydM5Byr0zS0xgidSOCW2',
+                        'Authorization': 'Bearer pat_K6QPZiAxDVh2CJHYxatf0RDzNt14VGC6886r71lO8cbK3jEN1XTtUZ8f6qkvanJF',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
